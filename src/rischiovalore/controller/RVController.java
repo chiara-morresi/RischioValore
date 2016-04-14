@@ -6,9 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import rischiovalore.model.Dato;
 
 public class RVController {
@@ -27,6 +29,9 @@ public class RVController {
 
     @FXML
     private ComboBox<String> boxMarchi;
+    
+    @FXML
+    private ListView<String> listMarchi;
 
     @FXML
     private TextField txtCodiceProdotto;
@@ -94,7 +99,16 @@ public class RVController {
     @FXML
     void doMostra(ActionEvent event) {
 
+    	boxFamProdotto.getItems().addAll("Prova", "poli", "casa");
     }
+    
+    @FXML
+    void doMostraSottofamiglia(MouseEvent event) {
+    	String e = boxFamProdotto.getValue();
+    	boxSottofamProdotto.getItems().add(e);
+    	
+    }
+
 
     @FXML
     void doReset(ActionEvent event) {
@@ -106,6 +120,7 @@ public class RVController {
         assert boxFamProdotto != null : "fx:id=\"boxFamProdotto\" was not injected: check your FXML file 'RV.fxml'.";
         assert boxSottofamProdotto != null : "fx:id=\"boxSottofamProdotto\" was not injected: check your FXML file 'RV.fxml'.";
         assert boxMarchi != null : "fx:id=\"boxMarchi\" was not injected: check your FXML file 'RV.fxml'.";
+        assert listMarchi != null : "fx:id=\"listMarchi\" was not injected: check your FXML file 'RV.fxml'.";
         assert txtCodiceProdotto != null : "fx:id=\"txtCodiceProdotto\" was not injected: check your FXML file 'RV.fxml'.";
         assert lblMessaggio != null : "fx:id=\"lblMessaggio\" was not injected: check your FXML file 'RV.fxml'.";
         assert tableDati != null : "fx:id=\"tableDati\" was not injected: check your FXML file 'RV.fxml'.";

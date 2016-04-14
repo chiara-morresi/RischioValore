@@ -2,6 +2,7 @@ package rischiovalore.model;
 
 public class Dato {
 
+	//elementi
 	private String codCliente;
 	private String sottofamiglia;
 	private String marchio;
